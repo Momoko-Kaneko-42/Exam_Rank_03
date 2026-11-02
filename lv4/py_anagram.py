@@ -1,4 +1,4 @@
-def count_letters(s: str) -> dict[str, int]:
+def count_letters(s: str) -> dict[str, int] -> int:
     count: dict[str, int] = {}
 
     for c in s.lower():
