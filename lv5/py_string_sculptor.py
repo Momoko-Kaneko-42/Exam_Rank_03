@@ -1,21 +1,19 @@
 # 偶数文字目は大文字、奇数文字目は小文字、アルファベット以外はそのまま出力、スペースの後は小文字から始まる
 def string_sculptor(text: str) -> str:
     result: str = ""
-    count: int = 0
+    count: int = 1
 
     for c in text:
         if c.isalpha():
             if count % 2 == 0:
-                count += 1
                 result += c.upper()
             else:
-                count += 1
                 result += c.lower()
+            count += 1
         elif c == " ":
             count = 1
             result += c
         else:
-            count += 1
             result += c
     return result
 

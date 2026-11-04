@@ -1,3 +1,16 @@
+def return_vowels_count(letters: str) -> int:
+    count = 0
+    for c in letters:
+        if c in "aeiou":
+            count += 1
+    return count
+
+
+# 優先順位付きの比較項目をタプルにまとめる
+def sort_key(s: str) -> tuple[int, str, int, str]:
+    return(len(s), s.lower(), return_vowels_count(s), s)
+
+
 # 複数の条件を、どうやって一つのソートにまとめるか？
 def cryptic_sorter(strings: list[str]) -> list[str]:
     result: list[str] = strings[:]
@@ -8,19 +21,7 @@ def cryptic_sorter(strings: list[str]) -> list[str]:
             if sort_key(result[j]) > sort_key(result[j + 1]):
                 result[j], result[j + 1] = result[j + 1], result[j]
     return result
-
-
-def return_vowels_count(letters: str) -> int:
-    count = 0
-    for c in letters:
-        if c in "aeiou":
-            count += 1
-    return count
-
-# 優先順位付きの比較項目をタプルにまとめる
-def sort_key(s: str) -> tuple[int, str, int, str]:
-    return(len(s), s.lower(), return_vowels_count(s), s)
-
+    # return sorted(strings, key=lambda word:(len(word), word.lower(), sum(c.lower in 'aeiou' for c in word)))
 
 # 比較の内容
 # def compare_2_strings(stra: str, strb: str) -> bool:
